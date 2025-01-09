@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 
 
 
-
 import EnjoyStay from '@/components/EnjoyStay'
 import TestimonialsSection from '@/components/Testimonials'
 import Experience from "@/components/Experience";
@@ -16,6 +15,7 @@ import Experience from "@/components/Experience";
 const Home = () => {
   return (
     <Box>
+      
       <Hero />
       <Discover />
       <RoomsInclude />

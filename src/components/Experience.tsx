@@ -84,7 +84,7 @@ const Experience: React.FC = () => {
             src={room.src}
             alt="room"
             width="100%"
-            // height="auto"
+            height="auto"
            
           />
 
@@ -114,73 +114,70 @@ const Experience: React.FC = () => {
         </Flex>
 
         <Flex
-  flexDirection="column"
-  align="start"
-  borderRadius="xl"
-  boxShadow="lg"
-  position="relative" // Ensures the overlay is positioned relative to this container
-  width="full"
-  overflow="hidden" // Prevents overflow of the image or overlay
-  role="group" // Enables _groupHover for children
-  maxWidth={{ base: "448px", sm: "720px", md: "460px", lg: "390px" }}
-  height="256px" // Set a fixed height for the container
->
-  {/* Background image */}
-  <Image
-    src={living.src}
-    alt="room"
-    width="100%"
-    height="100%" // Ensure the image fills the container's height
-    objectFit="cover" // Maintain aspect ratio while covering the container
-    display="block" // Prevents default inline spacing below the image
-  />
+          flexDirection="column"
+          align="start"
+          borderRadius="xl"
+          boxShadow="lg"
+          position="relative" // Ensures the overlay is positioned relative to this container
+          width="full"
+          overflow="hidden" // Prevents overflow of the image or overlay
+          role="group" // Enables _groupHover for children
+          maxWidth={{ base: "448px", sm: "720px", md: "460px", lg: "390px" }}
+          maxHeight={"256px"}
+        >
+          {/* Background image */}
+          <Image
+            src={living.src}
+            alt="room"
+            width="100%"
+            height="auto"
+            objectFit="cover"
+          />
 
-  {/* Overlay */}
-  <Box
-    position="absolute"
-    inset="0"
-    bgGradient="linear(to-b, transparent, rgba(0, 0, 0, 0.7))"
-    opacity="0"
-    _groupHover={{ opacity: "1" }} // Show on hover
-    transition="opacity 0.3s ease"
-  >
-    {/* Overlay Content */}
-    <Box
-      position="absolute"
-      bottom="4"
-      left="4"
-      color="white"
-      textAlign="left"
-    >
-      <Heading size="sm" fontWeight="semibold">
-        Mixed Dormitory
-      </Heading>
-      <Text fontSize="sm">Comfortable bunk beds</Text>
-    </Box>
-  </Box>
-</Flex>
-
-<Flex
-  flexDirection="column"
-  align="start"
-  borderRadius="xl"
-  boxShadow="lg"
-  position="relative" // Ensures the overlay is positioned relative to this container
-  width="full"
-  overflow="hidden" // Prevents overflow of the image or overlay
-  role="group" // Enables _groupHover for children
-  maxWidth={{ base: "448px", sm: "720px", md: "460px", lg: "390px" }}
-  height="256px" // Set a fixed height for the container
->
-  {/* Background image */}
-  <Image
-    src={washroom.src}
-    alt="room"
-    width="100%"
-    height="100%" // Ensure the image fills the container's height
-    objectFit="cover" // Maintain aspect ratio while covering the container
-    display="block" // Prevent default inline spacing below the image
-  />
+          {/* Overlay */}
+          <Box
+            position="absolute"
+            inset="0"
+            bgGradient="linear(to-b, transparent, rgba(0, 0, 0, 0.7))"
+            opacity="0"
+            _groupHover={{ opacity: "1" }} // Show on hover
+            transition="opacity 0.3s ease"
+          >
+            {/* Overlay Content */}
+            <Box
+              position="absolute"
+              bottom="4"
+              left="4"
+              color="white"
+              textAlign="left"
+            >
+              <Heading size="sm" fontWeight="semibold">
+                Mixed Dormitory
+              </Heading>
+              <Text fontSize="sm">Comfortable bunk beds</Text>
+            </Box>
+          </Box>
+        </Flex>
+        <Flex
+          flexDirection="column"
+          align="start"
+          borderRadius="xl"
+          boxShadow="lg"
+          position="relative" // Ensures the overlay is positioned relative to this container
+          width="full"
+          overflow="hidden" // Prevents overflow of the image or overlay
+          role="group" // Enables _groupHover for children
+          maxWidth={{ base: "448px", sm: "720px", md: "460px", lg: "390px" }}
+          maxHeight={"256px"}
+        >
+          {/* Background image */}
+          <Image
+            src={washroom.src}
+            alt="room"
+            width="100%"
+            height="auto"
+            objectFit="cover"
+          />
 
   {/* Overlay */}
   <Box
@@ -225,8 +222,8 @@ const Experience: React.FC = () => {
             src={room2.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
@@ -271,8 +268,8 @@ const Experience: React.FC = () => {
             src={outdoor.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
@@ -317,8 +314,8 @@ const Experience: React.FC = () => {
             src={entrance.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
