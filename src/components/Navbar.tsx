@@ -1,5 +1,22 @@
 'use client';
-import { Box, Flex, HStack, IconButton, Text, VStack, Image, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  Text,
+  VStack,
+  Image,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useState } from 'react';
@@ -7,6 +24,7 @@ import Logo from '@/assets/Logo.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure(); // Modal controls
   const navLinks = ['Home', 'About', 'Activities', 'Contact'];
 
   const toggleMobileMenu = () => {
@@ -15,7 +33,7 @@ const Navbar = () => {
 
   return (
     <Box bg="#181818" px={4} color="white" position="relative">
-      <Flex align="center" justify="space-between" px={{lg:"90px"}}>
+      <Flex align="center" justify="space-between" px={{ lg: "90px" }}>
         <Image src={Logo.src} alt="logo" width="50px" />
 
         {/* Hamburger Icon for mobile */}
@@ -32,7 +50,7 @@ const Navbar = () => {
         {/* Right side options for larger screens */}
         <HStack spacing={8} display={{ base: 'none', md: 'flex' }} align="center">
           {navLinks.map((link, index) => (
-            <Text key={index} _hover={{ color: 'teal.400' }}>
+            <Text key={index} _hover={{ color: 'yellow.400' }}>
               {link}
             </Text>
           ))}
@@ -46,6 +64,7 @@ const Navbar = () => {
             rounded="md"
             fontWeight="semibold"
             _hover={{ bg: 'yellow.400' }}
+            onClick={onOpen} // Open modal
           >
             Book Now
           </Button>
@@ -67,7 +86,7 @@ const Navbar = () => {
           zIndex="10"
         >
           {navLinks.map((link, index) => (
-            <Text key={index} _hover={{ color: 'teal.400' }} onClick={toggleMobileMenu}>
+            <Text key={index} _hover={{ color: 'yellow.400' }} onClick={toggleMobileMenu}>
               {link}
             </Text>
           ))}
@@ -77,18 +96,42 @@ const Navbar = () => {
             bg="#FACC15"
             color="black"
             width="full"
-             justifyContent="flex-start"
+            justifyContent="flex-start"
             px={1}
             py={2}
             rounded="md"
             fontWeight="semibold"
             _hover={{ bg: 'yellow.400' }}
-            onClick={toggleMobileMenu}
+            onClick={() => {
+              toggleMobileMenu();
+              onOpen(); // Open modal
+            }}
           >
             Book Now
           </Button>
         </VStack>
       )}
+
+      {/* Modal for Book Now */}
+       <Modal isOpen={isOpen} onClose={onClose} isCentered>
+              <ModalOverlay />
+              <ModalContent bg={'black'} className="border-2 border-[#262626]">
+                <ModalHeader className="text-white">Contact Us</ModalHeader>
+                <ModalCloseButton className="text-white" />
+                <ModalBody>
+                  <div className="text-center text-lg text-gray-200 font-medium">
+                    For bookings, please call:
+                    <div className="text-2xl font-bold mt-2 text-white">+91 98765 43210</div>
+                    <div className="text-2xl font-bold mt-2 text-white">+91 91234 56789</div>
+                  </div>
+                </ModalBody>
+                <ModalFooter>
+                  <Button onClick={onClose} className="text-white">
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
     </Box>
   );
 };
