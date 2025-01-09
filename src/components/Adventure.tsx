@@ -10,9 +10,17 @@ import {
   ModalFooter,
   Button,
 } from '@chakra-ui/react';
-
+import { IoPlayCircleOutline } from "react-icons/io5";
 const Adventure: React.FC = () => {
   const arr: Array<null> = Array.from({ length: 3 });
+
+  const data = [
+    {
+      icon:IoPlayCircleOutline,
+      title:"River Rafting",
+      description:"Experience thrilling white-water rafting on the Ganges. Perfect for beginners and experienced adventurers alike."
+    }
+  ]
 
   const [isOpen, setIsOpen] = useState(false);
 

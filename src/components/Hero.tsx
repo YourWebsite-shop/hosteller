@@ -1,8 +1,20 @@
+"use client"
 import React from "react";
 import { Box, Text, Button, Flex } from "@chakra-ui/react";
 import { FaArrowDown } from "react-icons/fa6";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 
 const Hero: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box bg="#181818">
       <Flex
@@ -52,6 +64,7 @@ const Hero: React.FC = () => {
             borderRadius="full"
             fontWeight="semibold"
             _hover={{ bg: "yellow.400" }}
+            onClick={onOpen}
           >
             Book Now
           </Button>
@@ -64,6 +77,7 @@ const Hero: React.FC = () => {
             borderColor="white"
             color="white"
             borderRadius="full"
+            onClick={onOpen}
             _hover={{
               bg: "white",
               color: "#1A202C",
@@ -135,6 +149,27 @@ const Hero: React.FC = () => {
           </Box>
         </Flex>
       </Flex>
+
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent bg={'black'} className="border-2 border-[#262626]">
+          <ModalHeader className="text-white">Contact Us</ModalHeader>
+          <ModalCloseButton className="text-white" />
+          <ModalBody>
+            <div className="text-center text-lg text-gray-200 font-medium">
+              For bookings, please call:
+              <div className="text-2xl font-bold mt-2 text-white">+91 98765 43210</div>
+              <div className="text-2xl font-bold mt-2 text-white">+91 91234 56789</div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose} className="text-white">
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
