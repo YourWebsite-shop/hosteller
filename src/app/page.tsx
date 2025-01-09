@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 
 
 
+import EnjoyStay from '@/components/EnjoyStay'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <RoomsInclude />
       <Adventure />
       <Footer />
+      <EnjoyStay />
     </Box>
   )
 }
