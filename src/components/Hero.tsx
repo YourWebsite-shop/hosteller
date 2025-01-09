@@ -79,10 +79,7 @@ const Hero: React.FC = () => {
           gap="32px"
           marginTop="auto" // Pushes this section to the bottom of the page
           mb="40px"
-<<<<<<< HEAD
-=======
           position="relative"
->>>>>>> 74a2cf1d942c6cc79de8bc9f4c41ff50223e16b5
         >
           <Flex direction="column" align="center">
             <Text
