@@ -17,8 +17,8 @@ const Home = () => {
       <Discover />
       <RoomsInclude />
       <Adventure />
-      <Footer />
       <EnjoyStay />
+      <Footer />
     </Box>
   )
 }
