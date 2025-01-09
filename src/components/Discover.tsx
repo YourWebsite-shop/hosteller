@@ -47,7 +47,7 @@ const Discover: React.FC = () => {
 
                     <Box className='flex justify-around'>
                         <Box className='flex flex-col items-center'>
-                            <Text className='text-4xl font-bold text-yellow-400'>4.1/5</Text>
+                            <Text className='text-4xl font-bold text-yellow-400'>4.6/5</Text>
                             <Text className='text-sm text-gray-400'>Guest Rating</Text>
                         </Box>
                         <Box className='flex flex-col items-center'>

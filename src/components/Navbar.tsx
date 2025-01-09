@@ -25,7 +25,7 @@ import Logo from '@/assets/Logo.png';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure(); // Modal controls
-  const navLinks = ['Home', 'About', 'Activities', 'Contact'];
+  const navLinks = [''];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);

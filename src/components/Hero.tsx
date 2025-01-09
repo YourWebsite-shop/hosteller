@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
               lineHeight={"1"}
               fontWeight="bold"
             >
-              4.1
+              4.6
             </Text>
             <Text color="#e5e7eb" fontSize="sm">
               Guest Rating
