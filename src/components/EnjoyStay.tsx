@@ -45,6 +45,7 @@ const EnjoyStay: React.FC = () => {
           md: "repeat(2, 1fr)",
           lg: "repeat(3, 1fr)",
         }}
+        maxW={'1216px'} mx={'auto'}
       >
         <Flex
           flexDirection="column"
@@ -56,6 +57,7 @@ const EnjoyStay: React.FC = () => {
           transition="transform 0.3s ease" // Ensure smooth transition
           _hover={{ transform: "translateY(-8px)" }}
           width="full"
+          
         >
           <Box color="#ECC94B" mb="4">
             <RxHome fontSize="40px" />

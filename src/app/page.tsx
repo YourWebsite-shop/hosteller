@@ -8,7 +8,9 @@ import Footer from '@/components/Footer'
 
 
 
+
 import EnjoyStay from '@/components/EnjoyStay'
+import TestimonialsSection from '@/components/Testimonials'
 
 const Home = () => {
   return (
@@ -18,6 +20,7 @@ const Home = () => {
       <RoomsInclude />
       <Adventure />
       <EnjoyStay />
+      <TestimonialsSection />
       <Footer />
     </Box>
   )
