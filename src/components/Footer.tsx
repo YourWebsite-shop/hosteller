@@ -1,9 +1,65 @@
-import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+"use client"
+import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@chakra-ui/react";
+import { useState } from "react";
+import axios from "axios";
 
 export default function ContactSection() {
+  const toast = useToast();
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e:Event) => {
+    const { id, value } = e.target as HTMLInputElement;
+
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Validation Error",
+        description: "All fields are required.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await axios.post("https://hosteler-five.vercel.app/api/contact", formData);
+
+      if (response.status === 201) {
+        toast({
+          title: "Success",
+          description: "Your message has been sent successfully!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      toast({
+        title: "Error",
+        description: error?.response?.data?.error || "Something went wrong. Please try again.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="bg-black text-white min-h-screen">
       <div className="container mx-auto px-4 py-12">
@@ -39,7 +95,7 @@ export default function ContactSection() {
 
           {/* Right Column - Contact Form */}
           <div className="bg-zinc-900 p-6 rounded-lg">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm mb-2">
                   Name
@@ -48,6 +104,9 @@ export default function ContactSection() {
                   id="name"
                   className="bg-zinc-800 border-zinc-700"
                   placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
@@ -59,6 +118,9 @@ export default function ContactSection() {
                   type="email"
                   className="bg-zinc-800 border-zinc-700"
                   placeholder="Your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
@@ -69,9 +131,16 @@ export default function ContactSection() {
                   id="message"
                   className="bg-zinc-800 border-zinc-700 min-h-[120px]"
                   placeholder="Your message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
                 />
               </div>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+              <Button
+                className="w-full bg-blue-600 hover:bg-blue-700"
+                type="submit"
+                isLoading={isSubmitting}
+              >
                 Send Message
               </Button>
             </form>
@@ -147,6 +216,5 @@ export default function ContactSection() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
