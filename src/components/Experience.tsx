@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   Box,
@@ -14,9 +15,20 @@ import entrance from "@/assets/entrance.png";
 import outdoor from "@/assets/outdoor.png";
 import washroom from "@/assets/washroom.png";
 import room2 from "@/assets/room2.png";
-import { start } from "repl";
+
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 
 const Experience: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Flex
       direction="column"
@@ -118,8 +130,8 @@ const Experience: React.FC = () => {
             src={living.src}
             alt="room"
             width="100%"
-            // height="auto"
-            
+            height="auto"
+            objectFit="cover"
           />
 
           {/* Overlay */}
@@ -163,34 +175,35 @@ const Experience: React.FC = () => {
             src={washroom.src}
             alt="room"
             width="100%"
-            // height="auto"
-            // objectFit="cover"
+            height="auto"
+            objectFit="cover"
           />
 
-          {/* Overlay */}
-          <Box
-            position="absolute"
-            inset="0"
-            bgGradient="linear(to-b, transparent, rgba(0, 0, 0, 0.7))"
-            opacity="0"
-            _groupHover={{ opacity: "1" }} // Show on hover
-            transition="opacity 0.3s ease"
-          >
-            {/* Overlay Content */}
-            <Box
-              position="absolute"
-              bottom="4"
-              left="4"
-              color="white"
-              textAlign="left"
-            >
-              <Heading size="sm" fontWeight="semibold">
-                Common Room
-              </Heading>
-              <Text fontSize="sm">Social space</Text>
-            </Box>
-          </Box>
-        </Flex>
+  {/* Overlay */}
+  <Box
+    position="absolute"
+    inset="0"
+    bgGradient="linear(to-b, transparent, rgba(0, 0, 0, 0.7))"
+    opacity="0"
+    _groupHover={{ opacity: "1" }} // Show on hover
+    transition="opacity 0.3s ease"
+  >
+    {/* Overlay Content */}
+    <Box
+      position="absolute"
+      bottom="4"
+      left="4"
+      color="white"
+      textAlign="left"
+    >
+      <Heading size="sm" fontWeight="semibold">
+        Common Room
+      </Heading>
+      <Text fontSize="sm">Social space</Text>
+    </Box>
+  </Box>
+</Flex>
+
 
         <Flex
           flexDirection="column"
@@ -340,9 +353,34 @@ const Experience: React.FC = () => {
         _hover={{ bg: "#1F2937" }}
         transition="background-color 0.2s ease"
         mt="64px"
+        onClick={onOpen}
       >
         Book Your Stay Now
       </Button>
+
+
+
+
+      {/* Modal */}
+       <Modal isOpen={isOpen} onClose={onClose} isCentered>
+              <ModalOverlay />
+              <ModalContent bg={'black'} className="border-2 border-[#262626]">
+                <ModalHeader className="text-white">Contact Us</ModalHeader>
+                <ModalCloseButton className="text-white" />
+                <ModalBody>
+                  <div className="text-center text-lg text-gray-200 font-medium">
+                    For bookings, please call:
+                    <div className="text-2xl font-bold mt-2 text-white">+91 98765 43210</div>
+                    <div className="text-2xl font-bold mt-2 text-white">+91 91234 56789</div>
+                  </div>
+                </ModalBody>
+                <ModalFooter>
+                  <Button onClick={onClose} className="text-white">
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
     </Flex>
   );
 };

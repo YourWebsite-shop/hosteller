@@ -36,7 +36,7 @@ function Testimonial({ initial, name, rating, text }: TestimonialProps) {
           </div>
         </div>
       </div>
-      <p className="text-gray-400">"{text}"</p>
+      <p className="text-gray-400">&quot;{text}&quot;</p>
     </div>
   );
 }
@@ -106,12 +106,12 @@ export default function TestimonialsSection() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Guests Say</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Join our community of happy travelers who've experienced the magic of Weekends Forever Max Tapovan.
+              Join our community of happy travelers who&apos;ve experienced the magic of Weekends Forever Max Tapovan.
             </p>
           </div>
 
           <div className="bg-zinc-900/50 rounded-xl p-8 mb-16 text-center">
-            <div className="text-6xl font-bold text-yellow-400 mb-2">4.1</div>
+            <div className="text-6xl font-bold text-yellow-400 mb-2">4.6</div>
             <div className="flex justify-center gap-1 mb-2">
               {[...Array(4)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
