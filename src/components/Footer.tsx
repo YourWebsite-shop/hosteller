@@ -5,20 +5,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export default function ContactSection() {
   const toast = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e:Event) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { id, value } = e.target as HTMLInputElement;
 
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -48,9 +48,10 @@ export default function ContactSection() {
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
+      const axiosError = error as AxiosError<{error: string}>;
       toast({
         title: "Error",
-        description: error?.response?.data?.error || "Something went wrong. Please try again.",
+        description: axiosError.response?.data?.error || "Something went wrong. Please try again.",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -139,9 +140,9 @@ export default function ContactSection() {
               <Button
                 className="w-full bg-blue-600 hover:bg-blue-700"
                 type="submit"
-                isLoading={isSubmitting}
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>
