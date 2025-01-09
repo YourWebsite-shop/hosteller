@@ -5,6 +5,7 @@ import Discover from "@/components/Discover";
 import RoomsInclude from "@/components/RoomsInclude";
 import Adventure from "@/components/Adventure";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -15,7 +16,7 @@ import Experience from "@/components/Experience";
 const Home = () => {
   return (
     <Box>
-      
+      <Navbar />
       <Hero />
       <Discover />
       <RoomsInclude />

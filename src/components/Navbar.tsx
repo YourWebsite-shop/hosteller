@@ -1,101 +1,96 @@
-// import { Box, Flex, Text, Button, useDisclosure } from '@chakra-ui/react';
-// import { GiHamburgerMenu } from "react-icons/gi";
-// import Link from 'next/link';
+'use client';
+import { Box, Flex, HStack, IconButton, Text, VStack, Image, Button } from '@chakra-ui/react';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
+import { useState } from 'react';
+import Logo from '@/assets/Logo.png';
 
-// const Navbar = () => {
-//   const { isOpen, onOpen, onClose } = useDisclosure();
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navLinks = ['Home', 'About', 'Activities', 'Contact'];
 
-//   return (
-//     <Box as="nav" bg="#08090A" color="white" p={4}>
-//       <Flex align="center" justify="space-between" maxW="7xl" mx="auto">
-//         {/* Logo Section */}
-//         <Text fontSize="2xl" fontWeight="bold">
-//           Logo
-//         </Text>
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
-//         {/* Desktop Menu */}
-//         <Flex
-//           display={{ base: 'none', md: 'flex' }}
-//           align="center"
-//           gap="6"
-//         >
-//           <Link href="#home">
-//             <Text
-//               fontSize="lg"
-//               fontWeight="semibold"
-//               _hover={{ textDecoration: 'underline' }}
-//             >
-//               Home
-//             </Text>
-//           </Link>
-//           <Link href="#contact">
-//             <Text
-//               fontSize="lg"
-//               fontWeight="semibold"
-//               _hover={{ textDecoration: 'underline' }}
-//             >
-//               Contact
-//             </Text>
-//           </Link>
-//           <Link href="#book-now">
-//             <Button
-//               bg="#ECC94B"
-//               color="white"
-//               _hover={{ bg: '#D69E2E' }}
-//               rounded="full"
-//               px={6}
-//             >
-//               Book Now
-//             </Button>
-//           </Link>
-//         </Flex>
+  return (
+    <Box bg="#181818" px={4} color="white" position="relative">
+      <Flex align="center" justify="space-between" px={{lg:"90px"}}>
+        <Image src={Logo.src} alt="logo" width="50px" />
 
-//         {/* Mobile Menu Toggle Button */}
-//         <Box display={{ base: 'block', md: 'none' }}>
-//           <Button variant="link" onClick={onOpen} color="white">
-//             <GiHamburgerMenu fontSize={6} />
-//           </Button>
-//         </Box>
-//       </Flex>
+        {/* Hamburger Icon for mobile */}
+        <IconButton
+          aria-label="Open menu"
+          icon={isMobileMenuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+          display={{ base: 'flex', md: 'none' }}
+          onClick={toggleMobileMenu}
+          bg="transparent"
+          color="white"
+          _hover={{ bg: 'gray.700' }}
+        />
 
-//       {/* Mobile Menu */}
-//       {isOpen && (
-//         <Box
-//           display={{ base: 'block', md: 'none' }}
-//           position="absolute"
-//           top="100%"
-//           left="0"
-//           right="0"
-//           bg="#08090A"
-//           p={4}
-//         >
-//           <Flex direction="column" align="start" gap={4}>
-//             <Link href="#home">
-//               <Text fontSize="lg" fontWeight="semibold" color="white">
-//                 Home
-//               </Text>
-//             </Link>
-//             <Link href="#contact">
-//               <Text fontSize="lg" fontWeight="semibold" color="white">
-//                 Contact
-//               </Text>
-//             </Link>
-//             <Link href="#book-now">
-//               <Button
-//                 bg="#ECC94B"
-//                 color="white"
-//                 _hover={{ bg: '#D69E2E' }}
-//                 rounded="full"
-//                 px={6}
-//               >
-//                 Book Now
-//               </Button>
-//             </Link>
-//           </Flex>
-//         </Box>
-//       )}
-//     </Box>
-//   );
-// };
+        {/* Right side options for larger screens */}
+        <HStack spacing={8} display={{ base: 'none', md: 'flex' }} align="center">
+          {navLinks.map((link, index) => (
+            <Text key={index} _hover={{ color: 'teal.400' }}>
+              {link}
+            </Text>
+          ))}
 
-// export default Navbar;
+          {/* Book Now Button */}
+          <Button
+            bg="#FACC15"
+            color="black"
+            px={4}
+            py={2}
+            rounded="md"
+            fontWeight="semibold"
+            _hover={{ bg: 'yellow.400' }}
+          >
+            Book Now
+          </Button>
+        </HStack>
+      </Flex>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <VStack
+          spacing={4}
+          align="start"
+          bg="#181818"
+          p={4}
+          display={{ base: 'flex', md: 'none' }}
+          position="absolute"
+          top="60px"
+          left="0"
+          right="0"
+          zIndex="10"
+        >
+          {navLinks.map((link, index) => (
+            <Text key={index} _hover={{ color: 'teal.400' }} onClick={toggleMobileMenu}>
+              {link}
+            </Text>
+          ))}
+
+          {/* Book Now Button */}
+          <Button
+            bg="#FACC15"
+            color="black"
+            width="full"
+             justifyContent="flex-start"
+            px={1}
+            py={2}
+            rounded="md"
+            fontWeight="semibold"
+            _hover={{ bg: 'yellow.400' }}
+            onClick={toggleMobileMenu}
+          >
+            Book Now
+          </Button>
+        </VStack>
+      )}
+    </Box>
+  );
+};
+
+export default Navbar;

@@ -4,7 +4,7 @@ import { FaArrowDown } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
   return (
-    <Box bg="#181818">
+    <Box bg="#181818" mt="-50px">
       <Flex
         alignItems="center"
         justifyContent="center"
@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            color="gray.900"
+            color="gray.700"
           >
             <FaArrowDown fontSize="24px" />
           </Box>
