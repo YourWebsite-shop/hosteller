@@ -11,15 +11,28 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { IoPlayCircleOutline } from "react-icons/io5";
+import { FaPause } from "react-icons/fa";
+import { HiOutlineSquares2X2 } from "react-icons/hi2";
+
 const Adventure: React.FC = () => {
-  const arr: Array<null> = Array.from({ length: 3 });
+
 
   const data = [
     {
       icon:IoPlayCircleOutline,
       title:"River Rafting",
       description:"Experience thrilling white-water rafting on the Ganges. Perfect for beginners and experienced adventurers alike."
-    }
+    },
+    {
+      icon:FaPause,
+      title:"Trekking Adventures",
+      description:"Explore scenic mountain trails with guided trekking tours. Suitable for all fitness levels."
+    },
+    {
+      icon:HiOutlineSquares2X2 ,
+      title:"Yoga & Meditation",
+      description:"Join yoga sessions at nearby centers. Perfect for spiritual seekers and wellness enthusiasts."
+    },
   ]
 
   const [isOpen, setIsOpen] = useState(false);
@@ -38,15 +51,15 @@ const Adventure: React.FC = () => {
         </p>
 
         <div className="flex flex-col md:flex-row md:justify-around gap-y-6 mt-10 w-full ">
-          {arr.map((item, i) => (
+          {data.map((item, i) => (
             <div
               key={i}
               className="text-white bg-[#262626] p-6 rounded-2xl w-full hover:-translate-y-2 transition-all duration-200 md:w-[30%]"
             >
-              <p>icons</p>
-              <h5 className="text-xl font-semibold py-2">River Rafting</h5>
+              <p className='text-3xl text-yellow-500'>{<item.icon/>}</p>
+              <h5 className="text-xl font-semibold py-2">{item.title}</h5>
               <p className="text-gray-400">
-                Experience thrilling white-water rafting on the Ganges. Perfect for beginners and experienced adventurers alike.
+                {item.description}
               </p>
               <button
                 className="text-yellow-400 pt-4"
