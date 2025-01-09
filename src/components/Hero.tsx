@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           lineHeight={{ base: "1.1", sm: "1.2", md: "1.3" }}
         >
           Welcome to Weekends Forever
-          <Text textAlign="center" as="span" display="block" color="yellow.400">
+          <Text textAlign="center" as="span" display="block" color="#FACC15">
             Rishikesh
           </Text>
         </Text>
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           <Button
             px="8"
             py="6"
-            bg="#ECC94B"
+            bg="#FACC15"
             color="#1A202C"
             borderRadius="full"
             fontWeight="semibold"
