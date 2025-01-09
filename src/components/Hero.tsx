@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text, Button, Flex } from "@chakra-ui/react";
-import { base, col } from "framer-motion/client";
+import { FaArrowDown } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
   return (
@@ -11,14 +11,14 @@ const Hero: React.FC = () => {
         flexDirection="column"
         minHeight="100vh"
         textAlign="center"
-        pt={{base:"180px", sm:"220px"}}
+        pt={{ base: "180px", sm: "220px" }}
       >
         <Text
-          fontSize={{ base: "36px", sm: "48px", md: "60px" }}
+          fontSize={{ base: "36px", sm: "48px", md: "64px" }}
           fontWeight="bold"
           color="white"
           mb="4"
-          lineHeight={{ base: "1.1", sm: "1.2", md: "1.3" }}
+          lineHeight={{ base: "1", sm: "1.1", md: "1.2" }}
         >
           Welcome to Weekends Forever
           <Text textAlign="center" as="span" display="block" color="#FACC15">
@@ -78,10 +78,16 @@ const Hero: React.FC = () => {
           flexDirection="row"
           gap="32px"
           marginTop="auto" // Pushes this section to the bottom of the page
-          mb="80px"
+          mb="40px"
+          position="relative"
         >
           <Flex direction="column" align="center">
-            <Text color="#e5e7eb" fontSize="4xl" fontWeight="bold">
+            <Text
+              color="#e5e7eb"
+              fontSize="4xl"
+              lineHeight={"1"}
+              fontWeight="bold"
+            >
               4.1
             </Text>
             <Text color="#e5e7eb" fontSize="sm">
@@ -90,7 +96,12 @@ const Hero: React.FC = () => {
           </Flex>
 
           <Flex direction="column" align="center">
-            <Text color="#e5e7eb" fontSize="4xl" fontWeight="bold">
+            <Text
+              color="#e5e7eb"
+              fontSize="4xl"
+              fontWeight="bold"
+              lineHeight={"1"}
+            >
               15+
             </Text>
             <Text color="#e5e7eb" fontSize="sm">
@@ -99,13 +110,29 @@ const Hero: React.FC = () => {
           </Flex>
 
           <Flex direction="column" align="center">
-            <Text color="#e5e7eb" fontSize="4xl" fontWeight="bold">
+            <Text
+              color="#e5e7eb"
+              fontSize="4xl"
+              fontWeight="bold"
+              lineHeight={"1"}
+            >
               24/7
             </Text>
             <Text color="#e5e7eb" fontSize="sm">
               Support
             </Text>
           </Flex>
+          <Box
+            position="absolute"
+            bottom="-6"
+            right="32" 
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            color="gray.900"
+          >
+            <FaArrowDown fontSize="24px" />
+          </Box>
         </Flex>
       </Flex>
     </Box>

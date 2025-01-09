@@ -72,7 +72,7 @@ const Experience: React.FC = () => {
             src={room.src}
             alt="room"
             width="100%"
-            // height="auto"
+            height="auto"
            
           />
 
@@ -118,8 +118,8 @@ const Experience: React.FC = () => {
             src={living.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            
           />
 
           {/* Overlay */}
@@ -163,8 +163,8 @@ const Experience: React.FC = () => {
             src={washroom.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
@@ -209,8 +209,8 @@ const Experience: React.FC = () => {
             src={room2.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
@@ -255,8 +255,8 @@ const Experience: React.FC = () => {
             src={outdoor.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
@@ -301,8 +301,8 @@ const Experience: React.FC = () => {
             src={entrance.src}
             alt="room"
             width="100%"
-            height="auto"
-            objectFit="cover"
+            // height="auto"
+            // objectFit="cover"
           />
 
           {/* Overlay */}
