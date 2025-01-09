@@ -13,7 +13,7 @@ const Discover: React.FC = () => {
                 <Box width={{xl:'62%'}} >
                     <Box>
                         <Heading as={'h2'}> Discover Tranquility and Adventure </Heading>
-                        <Text pt={{ base: '20px' }} textColor={'gray.700'}> Nestled in the vibrant hub of Tapovan, Weekends Forever Max Tapovan is more than just a hostel; it's your gateway to the soulful energy of Rishikesh. With proximity to adventure activities like river rafting and trekking, as well as spiritual landmarks, we provide the best of both worlds. </Text>
+                        <Text pt={{ base: '20px' }} textColor={'gray.700'}> Nestled in the vibrant hub of Tapovan, Weekends Forever Max Tapovan is more than just a hostel; it&apos;s your gateway to the soulful energy of Rishikesh. With proximity to adventure activities like river rafting and trekking, as well as spiritual landmarks, we provide the best of both worlds. </Text>
                     </Box>
 
 

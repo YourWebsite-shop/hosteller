@@ -15,7 +15,7 @@ import entrance from "@/assets/entrance.png";
 import outdoor from "@/assets/outdoor.png";
 import washroom from "@/assets/washroom.png";
 import room2 from "@/assets/room2.png";
-import { start } from "repl";
+
 import {
   Modal,
   ModalOverlay,

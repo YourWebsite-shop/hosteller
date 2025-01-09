@@ -36,7 +36,7 @@ function Testimonial({ initial, name, rating, text }: TestimonialProps) {
           </div>
         </div>
       </div>
-      <p className="text-gray-400">"{text}"</p>
+      <p className="text-gray-400">&quot;{text}&quot;</p>
     </div>
   );
 }
@@ -106,7 +106,7 @@ export default function TestimonialsSection() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Guests Say</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Join our community of happy travelers who've experienced the magic of Weekends Forever Max Tapovan.
+              Join our community of happy travelers who&apos;ve experienced the magic of Weekends Forever Max Tapovan.
             </p>
           </div>
 
