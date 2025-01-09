@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
           flexDirection="row"
           gap="32px"
           marginTop="auto" // Pushes this section to the bottom of the page
-          mb="80px"
+          mb="40px"
         >
           <Flex direction="column" align="center">
             <Text color="#e5e7eb" fontSize="4xl" fontWeight="bold">

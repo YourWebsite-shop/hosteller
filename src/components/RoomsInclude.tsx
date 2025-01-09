@@ -6,7 +6,8 @@ import { MdBrowserNotSupported } from "react-icons/md";
 
 const RoomsInclude: React.FC = () => {
     return (
-        <div className='max-w-[1216px] mx-auto'>
+        <div className='bg-[#F5F5F5]'>
+            <div className='max-w-[1216px] mx-auto '>
             <h5 className='text-center text-xl py-4 font-semibold'>All Rooms Include</h5>
 
             <div className='flex flex-wrap gap-y-8 py-8'>
@@ -27,6 +28,7 @@ const RoomsInclude: React.FC = () => {
                     <p>24/7 Support</p>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

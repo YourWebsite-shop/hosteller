@@ -88,7 +88,7 @@ export default function ContactSection() {
                 <Phone className="w-6 h-6 text-blue-500 mt-1" />
                 <div>
                   <p className="font-medium mb-1">Phone</p>
-                  <p className="text-gray-400">+91 XXXXX XXXXX</p>
+                  <p className="text-gray-400">+91 9762246777</p>
                 </div>
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function ContactSection() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                +91 XXXXX XXXXX
+                +919762246777
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
