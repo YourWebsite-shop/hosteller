@@ -90,8 +90,8 @@ const Adventure: React.FC = () => {
           <ModalBody>
             <div className="text-center text-lg text-gray-200 font-medium">
               For bookings, please call:
-              <div className="text-2xl font-bold mt-2 text-white">+91 98765 43210</div>
-              <div className="text-2xl font-bold mt-2 text-white">+91 91234 56789</div>
+              <div className="text-2xl font-bold mt-2 text-white">+91 9762246777</div>
+              <div className="text-2xl font-bold mt-2 text-white">+91 9265260329</div>
             </div>
           </ModalBody>
           <ModalFooter>
