@@ -16,7 +16,7 @@ import Experience from "@/components/Experience";
 const Home = () => {
   return (
     <Box>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <Discover />
       <RoomsInclude />
@@ -25,7 +25,8 @@ const Home = () => {
       <Adventure />
       <Experience />
 
-      <Footer />
+      <Footer /> */}
+      
     </Box>
   );
 };
